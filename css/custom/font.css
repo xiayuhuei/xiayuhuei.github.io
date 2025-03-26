@@ -2,7 +2,7 @@
     /* 为载入的字体取名字(随意) */
     font-family: 'xiayu';	
     /* 字体文件地址(相对或者绝对路径都可以) */
-    src: url('https://v.06dn.com/api/v3/slave/download/0/L3VwbG9hZHMvMjg2MjEvMjAyNTAzLzIzLzI4NjIxXzZKZXlISHNzX0RpbmdUYWxrLUppbkJ1VGkudHRm/DingTalk-JinBuTi.ttf?sign=1R1G7I2-g0bOlQ7i9U_fsYLXHkfBzDMCTzqAHelNupE%3D%3A1742847082') format("truetype");
+    src: url('https://v.06dn.com/api/v3/slave/download/0/L3VwbG9hZHMvMjg2MjEvMjAyNTAzLzIzLzI4NjIxXzZKZXlISHNzX0RpbmdUYWxrLUppbkJ1VGkudHRm/DingTalk-JinBuTi.ttf?sign=vq91nhM5fwO8suEEkQdhcTE9H1f-nYjgfOnkBxezrHs%3D%3A1743079328') format("truetype");
     
     /* 定义加粗样式(加粗多少) */
     font-weight: normal;
