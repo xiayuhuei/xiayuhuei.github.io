@@ -2,7 +2,7 @@
     /* 为载入的字体取名字(随意) */
     font-family: 'xiayu';	
     /* 字体文件地址(相对或者绝对路径都可以) */
-    src: url('https://small3.bakstotre.com/202503262106/270cc5dea2604681bc91b8d2383ac8d9/disk/2024/08/01/9/124220529/1722480362095801.gz?filename=DingTalk-JinBuTi.ttf&fileId=3889859002') format("truetype");
+    src: url('https://v.06dn.com/api/v3/slave/download/0/L3VwbG9hZHMvMjg2MjEvMjAyNTAzLzIzLzI4NjIxXzZKZXlISHNzX0RpbmdUYWxrLUppbkJ1VGkudHRm/DingTalk-JinBuTi.ttf?sign=je1PwCubOy4M5nhs4uQrE0AJlIAfiC0ZCTCBCAnIi5c%3D%3A1743096210') format("truetype");
     
     /* 定义加粗样式(加粗多少) */
     font-weight: normal;
