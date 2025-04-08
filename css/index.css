@@ -10939,7 +10939,7 @@ h1.page-title + .tag-cloud-list {
   transition: 0.3s;
 }
 #page-header.full_page {
-  height: 100vh;
+  height: 300px;
   background-attachment: fixed;
   border-radius: 0;
 }
@@ -15135,6 +15135,15 @@ blockquote {
 }
 .post-tools .post-tools-left {
   width: auto;
+}
+#post .tag_share {
+  margin-bottom: 2rem;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .relatedPosts {
   margin-top: 1.25rem;
