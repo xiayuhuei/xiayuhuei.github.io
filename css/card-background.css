@@ -1,8 +1,0 @@
-.card-widget.card-info {
-    background: url(https://img.picgo.net/2025/04/09/502773665a6aa2bd88.md.png) center/cover no-repeat!important;
-}
-
-#aside-content >.card-widget.card-info::before {
-    background-image: linear-gradient(-25deg, hsl(204deg 100% 50% / 45%), hsl(36.71deg 100% 50% / 45%), hsl(204deg 100% 50% / 45%), hsl(36.71deg 100% 50% / 45%));
-    backdrop-filter: blur(0px);
-}
