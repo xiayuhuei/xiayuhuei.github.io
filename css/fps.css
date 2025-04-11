@@ -1,0 +1,20 @@
+/* 帧率检测 */
+#fps {
+    position: fixed;
+    /* 指定位置 */
+    right: 10px;
+    bottom: 10px;
+    z-index: 1919810;
+  }
+  [data-theme="light"] #fps {
+    background-color: rgba(0, 0, 0, 0.800);
+    backdrop-filter: var(--backdrop-filter);
+    padding: 4px;
+    border-radius: 25px;
+  }
+  [data-theme="dark"] #fps {
+    background-color: rgba(0, 0, 0, 0.800);
+    backdrop-filter: var(--backdrop-filter);
+    padding: 4px;
+    border-radius: 25px;
+  }
