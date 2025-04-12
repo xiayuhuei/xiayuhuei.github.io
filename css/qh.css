@@ -1,0 +1,89 @@
+/* 由于全屏会出bug，所以直接给他隐藏 */
+#web_bg {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-attachment: local !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important; /* 关键参数 */
+    transition: background-image 0.5s ease !important;
+  }
+
+.winbox {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.wb-full {
+    display: none;
+}
+
+.wb-min {
+    background-position: center;
+}
+
+[data-theme='dark'] .wb-body,
+[data-theme='dark'] #changeBgBox {
+    background: #333 !important;
+}
+
+.bgbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pimgbox,
+.imgbox,
+.box {
+    width: 166px;
+    margin: 10px;
+    /* 修改背景大小属性，使背景图完整显示 */
+    background-size: contain; 
+    background-repeat: no-repeat; /* 防止背景图重复 */
+    background-position: center; /* 背景图居中显示 */
+}
+
+.pimgbox,
+.imgbox {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pimgbox {
+    height: 240px;
+}
+
+.imgbox {
+    height: 95px;
+}
+
+.box {
+    height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    /* 背景 */
+    .pimgbox,
+    .imgbox,
+    .box {
+        height: 73px;
+        width: 135px;
+    }
+    .pimgbox {
+        height: 205px;
+    }
+    /* 2.0新增内容 */    
+    .wb-min {
+        display: none;
+    }
+    #changeBgBox .wb-body::-webkit-scrollbar {
+        display: none;
+    }
+}  
