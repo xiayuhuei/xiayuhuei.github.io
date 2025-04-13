@@ -1,4 +1,4 @@
-/* 由于全屏会出bug，所以直接给他隐藏 */
+/* 背景铺满 */
 #web_bg {
     position: fixed !important;
     top: 0;
@@ -13,8 +13,11 @@
     background-position: center center !important;
     background-size: cover !important; /* 关键参数 */
     transition: background-image 0.5s ease !important;
+    image-orientation: from-image; /* 或改为 image-orientation: none; */
+    transform: rotate(0deg); /* 强制取消旋转 */
   }
 
+/* 由于全屏会出bug，所以直接给他隐藏 */
 .winbox {
     border-radius: 12px;
     overflow: hidden;
