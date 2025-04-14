@@ -1,0 +1,17 @@
+/* 禁用原生滚动 */
+html.lenis {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  /* 修复 Hexo 常见冲突 */
+  .post-body img {
+    content-visibility: auto;
+  }

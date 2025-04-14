@@ -21348,9 +21348,7 @@ div#tag {
 
 /* 分类页面 */
 div#category {
-  background: rgba(255, 255, 255, 0.30);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0);
 }
 
 /*白模式伪类遮罩层透明*/
@@ -24130,7 +24128,7 @@ div#archive {
   margin-top: 0px;
 }
 body[data-type="fcircle"] #web_bg {
-  background-color: #0048ff;
+  background-color: #f7f9fe;
 }
 
 [data-theme="dark"] body[data-type="fcircle"] #web_bg {

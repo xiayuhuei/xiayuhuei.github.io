@@ -74,7 +74,7 @@ function createWinbox() {
 
     <div class="note danger modern"><i class="note-icon fa-solid.fa-image"></i><p>有效期为一天，到期切回默认壁纸</p>
     </div>
-
+   
     <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#5fcdff;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
     <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
      </time></header><details class="folding-tag" ><summary> 查看电脑壁纸 </summary>
