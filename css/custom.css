@@ -1,20 +1,54 @@
-/* 帧率检测 */
 #fps {
-    position: fixed;
-    /* 指定位置 */
-    left: 10px;
-    bottom: 88px;
-    z-index: 1919810;
-  }
-  [data-theme="light"] #fps {
-    background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: var(--backdrop-filter);
-    padding: 4px;
-    border-radius: 4px;
-  }
-  [data-theme="dark"] #fps {
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: var(--backdrop-filter);
-    padding: 4px;
-    border-radius: 4px;
-  }
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1919810;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#fps {
+  right: 10px !important;
+  left: auto !important; /* 确保 left 属性被重置 */
+}
+
+#fps {
+  /* 原有样式保持不变 */
+  min-width: 80px;   /* 最小宽度 */
+  max-width: 300px;  /* 最大宽度 */
+  text-align: center; /* 文字居中 */
+  white-space: nowrap; /* 防止文字换行 */
+  overflow: hidden;   /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 过长显示省略号 */
+}
+
+/* 浅色主题 */
+[data-theme="light"] #fps {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #2c3e50;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* 深色主题 */
+[data-theme="dark"] #fps {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 悬停动画 */
+#fps:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#fps span {
+  transition: opacity 0.3s ease;
+}

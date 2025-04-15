@@ -16,7 +16,7 @@
     image-orientation: from-image; /* 或改为 image-orientation: none; */
     transform: rotate(0deg); /* 强制取消旋转 */
   }
-
+  
 /* 由于全屏会出bug，所以直接给他隐藏 */
 .winbox {
     border-radius: 12px;
@@ -47,10 +47,7 @@
 .box {
     width: 166px;
     margin: 10px;
-    /* 修改背景大小属性，使背景图完整显示 */
-    background-size: contain; 
-    background-repeat: no-repeat; /* 防止背景图重复 */
-    background-position: center; /* 背景图居中显示 */
+    background-size: cover
 }
 
 .pimgbox,
@@ -89,4 +86,4 @@
     #changeBgBox .wb-body::-webkit-scrollbar {
         display: none;
     }
-}  
+}

@@ -1,39 +1,3 @@
-/**普通指针样式**/
-body {
-  cursor: url("/img/xia.cur"), default;
-}
-/**链接指针样式**/
-a:hover {
-  cursor: url("/img/xia1.cur"), pointer;
-}
-/**悬停图片时的鼠标指针**/
-img {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**选中输入框时的鼠标指针**/
-input {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**悬停按钮时的鼠标指针**/
-button {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**悬停列表标签时的鼠标指针**/
-i::hover {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**悬停页脚链接标签（例如页脚徽标）时的鼠标指针**/
-footer-wrap a {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**悬停页码时的鼠标指针**/
-pagination .page-number {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
-/**悬停菜单栏时的鼠标指针**/
-nav .site-page {
-  cursor: url("/img/xia1.cur"), auto !important;
-}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
@@ -21318,87 +21282,88 @@ svg.icon {
 
 /* 文章页面正文背景 */
 div#post {
-  background: rgba(255, 255, 255, 0.30);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 #recent-posts > .recent-post-item:not(:first-child):active {
   transform: scale(0.97);
 }
 /* 分页页面 */
 div#page {
-  background: rgba(255, 255, 255, 0.30);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 /* 归档页面 */
 div#archive {
-  background: rgba(255, 255, 255, 0.30);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 /* 标签页面 */
 div#tag {
-  background: rgba(255, 255, 255, 0.30);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 /* 分类页面 */
 div#category {
-  background: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
-/*白模式伪类遮罩层透明*/
-div#recent-posts > .recent-post-item{
-  background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+div#recent-posts > .recent-post-item {
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
-
-
 
 /*夜间模式伪类遮罩层透明*/
 [data-theme="dark"] #recent-posts > .recent-post-item {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] .card-widget {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#post {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#tag {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#archive {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#page {
-  background: #12121288;
-  -webkit-backdrop-filter: blur(5px);  /* Safari 支持 */
-  backdrop-filter: blur(5px);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#category {
-  background: var(--anzhiyu-card-bg);
+  background: #12121270;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] div#category {
@@ -21428,10 +21393,10 @@ div#recent-posts > .recent-post-item{
   a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link):not(.btn-anzhiyu):not(
     .no-text-decoration
   ) {
-  font-weight: 700;
+  font-weight: 500;
   border-bottom: solid 2px var(--anzhiyu-lighttext);
   color: var(--anzhiyu-fontcolor);
-  padding: 0 0.9em;
+  padding: 0 0.2em;
   text-decoration: none;
   font-family: inherit;
 }
@@ -21442,7 +21407,7 @@ div#recent-posts > .recent-post-item{
   color: var(--anzhiyu-white);
   background: var(--anzhiyu-main);
   box-shadow: var(--anzhiyu-shadow-lightblack);
-  border-radius: 0.em;
+  border-radius: 0.25em;
   text-decoration: none;
 }
 
@@ -21479,7 +21444,7 @@ html.hide-aside .layout > div:first-child {
   }
 }
 /* 首页文章宽度 */
-@media screen and (max-width: 100px) {
+@media screen and (max-width: 1200px) {
   .layout > div:first-child {
     width: 100% !important;
   }
@@ -21524,8 +21489,30 @@ html.hide-aside .layout > div:first-child {
   }
 }
 
+/* 帧率检测 */
+#fps {
+  position: fixed;
+  /* 指定位置 */
+  left: 10px;
+  bottom: 10px;
+  z-index: 1919810;
+}
+[data-theme="light"] #fps {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: var(--backdrop-filter);
+  padding: 4px;
+  border-radius: 4px;
+}
+[data-theme="dark"] #fps {
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: var(--backdrop-filter);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+
 #aside-content .card-widget#card-wechat {
-  background: linear-gradient(to right, #468efac4, #26ccfebd);
+  background: linear-gradient(to right, #468efab9, #26ccfeb4);
   display: flex;
   justify-content: center;
   align-content: center;
@@ -21535,7 +21522,7 @@ html.hide-aside .layout > div:first-child {
   height: 110px;
 }
 [data-theme="dark"] #aside-content .card-widget#card-wechat {
-  background: linear-gradient(to right, #0f1f36b4, #093441c4);
+  background: linear-gradient(to right, #1a3c6eb9, #0e5b72b4);
   border: var(--style-border);
 }
 
@@ -21862,7 +21849,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
 }
 .wv-top-button {
   background-color: var(--anzhiyu-blue) !important;
-  color: #ff0000 !important;
+  color: #fff !important;
 }
 
 .wv-top-button:hover {
@@ -21961,7 +21948,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
 #post-comment blockquote {
   background: var(--anzhiyu-secondbg);
   border: var(--style-border);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   margin: 0px 0px 0.5rem;
   font-size: 12px;
   color: var(--anzhiyu-secondtext);

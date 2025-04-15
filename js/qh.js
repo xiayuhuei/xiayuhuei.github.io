@@ -1,45 +1,69 @@
 // 存数据
 // name：命名 data：数据
 function saveData(name, data) {
-    localStorage.setItem(name, JSON.stringify({ 'time': Date.now(), 'data': data }))
+   localStorage.setItem(name, JSON.stringify({ 'time': Date.now(), 'data': data }))
 }
 
 // 取数据
 // name：命名 time：过期时长,单位分钟,如传入30,即加载数据时如果超出30分钟返回0,否则返回数据
 function loadData(name, time) {
-    let d = JSON.parse(localStorage.getItem(name));
-    // 过期或有错误返回 0 否则返回数据
-    if (d) {
-        let t = Date.now() - d.time
-        if (t < (time * 60 * 1000) && t > -1) return d.data;
-    }
-    return 0;
+   let d = JSON.parse(localStorage.getItem(name));
+   // 过期或有错误返回 0 否则返回数据
+   if (d) {
+       let t = Date.now() - d.time
+       if (t < (time * 60 * 1000) && t > -1) return d.data;
+   }
+   return 0;
 }
+
+// 设置字体选择框边界
+function setFontBorder() {
+   var curFont = localStorage.getItem("font");
+   var swfId = "swf_" + curFont;
+   document.getElementById(swfId).style.border = "2px solid var(--theme-color)";
+   Array.prototype.forEach.call(document.getElementsByClassName("swf"), function (ee) {
+     if (ee.id != swfId) ee.style.border = "2px solid var(--border-color)";
+   });
+ }
+
+// 透明度调节滑块
+if (localStorage.getItem("transNum") == undefined) {
+   localStorage.setItem("transNum", 95);
+ }
+ var curTransNum = localStorage.getItem("transNum");
+ var curTransMini = curTransNum * 0.95;
+ document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(253, 253, 253, ${curTransNum}%) !important; --trans-dark: rgba(25, 25, 25, ${curTransNum}%) !important} `;
+ function setTrans() {
+   var elem = document.getElementById("transSet");
+   var newTransNum = elem.value;
+   var target = document.querySelector('.transValue');
+   target.innerHTML = "透明度 (0%-100%): " + newTransNum + "%";
+   localStorage.setItem("transNum", newTransNum);
+   curTransMini = newTransNum * 0.95;
+   curTransNum = newTransNum;  // 更新当前透明度
+   document.querySelector('#rang_trans').style.width = curTransMini + "%";
+   document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(253, 253, 253, ${newTransNum}%) !important; --trans-dark: rgba(25, 25, 25, ${newTransNum}%) !important} `;
+ };
 
 // 上面两个函数如果你有其他需要存取数据的功能，也可以直接使用
 
 // 读取背景
 try {
-    let data = loadData('blogbg', 1440)
-    if (data) changeBg(data, 1)
-    else localStorage.removeItem('blogbg');
+   let data = loadData('blogbg', 1440)
+   if (data) changeBg(data, 1)
+   else localStorage.removeItem('blogbg');
 } catch (error) { localStorage.removeItem('blogbg'); }
 
 // 切换背景函数
 // 此处的flag是为了每次读取时都重新存储一次,导致过期时间不稳定
 // 如果flag为0则存储,即设置背景. 为1则不存储,即每次加载自动读取背景.
 function changeBg(s, flag) {
-    let bg = document.getElementById('web_bg')
-    if (s.charAt(0) == '#') {
-        bg.style.backgroundColor = s
-        bg.style.backgroundImage = 'none'
-    } else {
-        bg.style.backgroundImage = s
-    }
-    bg.style.backgroundSize = "contain";
-    bg.style.backgroundPosition = "center";
-    bg.style.backgroundRepeat = "no-repeat";
-    if (!flag) { saveData('blogbg', s) }
+   let bg = document.getElementById('web_bg')
+   if (s.charAt(0) == '#') {
+       bg.style.backgroundColor = s
+       bg.style.backgroundImage = 'none'
+   } else bg.style.backgroundImage = s
+   if (!flag) { saveData('blogbg', s) }
 }
 
 // 以下为2.0新增内容
@@ -48,22 +72,23 @@ function changeBg(s, flag) {
 var winbox = ''
 
 function createWinbox() {
-    let div = document.createElement('div')
-    document.body.appendChild(div)
-    winbox = WinBox({
-        id: 'changeBgBox',
-        index: 999,
-        title: "切换背景",
-        x: "center",
-        y: "center",
-        minwidth: '300px',
-        height: "60%",
-        background: '#5c58a4',
-        onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#changeBgBox {width: 100% !important;}</style>` },
-        onrestore: () => { div.innerHTML = '' }
-    });
-    winResize();
-    window.addEventListener('resize', winResize)
+   let div = document.createElement('div')
+   document.body.appendChild(div)
+   winbox = WinBox({
+       id: 'changeBgBox',
+       index: 999,
+       title: "切换背景",
+       x: "center",
+       y: "center",
+       minwidth: '300px',
+       height: "60%",
+       background: '#49b1f5',
+       onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#changeBgBox {width: 100% !important;}</style>` },
+       onrestore: () => { div.innerHTML = '' }
+   });
+   winResize();
+   window.addEventListener('resize', winResize)
+  
 
     // 每一类我放了一个演示，直接往下复制粘贴 a标签 就可以，需要注意的是 函数里面的链接 冒号前面需要添加反斜杠\进行转义
     winbox.body.innerHTML = `
@@ -74,7 +99,7 @@ function createWinbox() {
 
     <div class="note danger modern"><i class="note-icon fa-solid.fa-image"></i><p>有效期为一天，到期切回默认壁纸</p>
     </div>
-   
+
     <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#5fcdff;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
     <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
      </time></header><details class="folding-tag" ><summary> 查看电脑壁纸 </summary>
