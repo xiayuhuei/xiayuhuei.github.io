@@ -1,0 +1,22 @@
+{
+        "version":"1.0.0",
+	"type": "Live2D Model Setting",
+	"name": "fylive2d",
+	"model": "fylive2d.moc",
+	"textures": [
+		"fylive2d.1024/texture_00.png"
+	],
+       "motions":{
+        "idle":[
+            {"file":"motions/Breath1.mtn"}
+        ],
+        "flick_head":[
+            {"file":"motions/Touch Dere1.mtn"},
+            {"file":"motions/Touch Dere2.mtn"},
+            {"file":"motions/Touch Dere3.mtn"},
+            {"file":"motions/Touch Dere4.mtn"},
+            {"file":"motions/Touch Dere5.mtn"},
+            {"file":"motions/Touch Dere6.mtn"}
+        ]
+    }
+}

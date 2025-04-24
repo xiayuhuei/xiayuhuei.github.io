@@ -26,6 +26,64 @@ function setFontBorder() {
    });
  }
 
+
+
+// 打开窗口函数
+function openModal() {
+   const overlay = document.getElementById('modalOverlay');
+   overlay.classList.add('active');
+   document.body.style.overflow = 'hidden'; // 防止背景滚动
+ }
+ 
+ // 关闭窗口函数
+ function closeModal() {
+   const overlay = document.getElementById('modalOverlay');
+   overlay.classList.remove('active');
+   document.body.style.overflow = '';
+ }
+ 
+ // 事件绑定
+ document.querySelector('.close-btn').addEventListener('click', closeModal);
+ document.getElementById('modalOverlay').addEventListener('click', function(e) {
+   if (e.target === this) closeModal();
+ });
+ 
+ // ESC 键关闭
+ document.addEventListener('keydown', (e) => {
+   if (e.key === 'Escape' && document.getElementById('modalOverlay').classList.contains('active')) {
+     closeModal();
+   }
+ });
+ 
+ // 使用示例：在需要打开的地方调用 openModal()
+
+const openBtn = document.getElementById('openBtn');
+const closeBtn = document.querySelector('.close-btn');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+
+// 打开窗口
+openBtn.addEventListener('click', () => {
+  modal.classList.add('active');
+  overlay.classList.add('active');
+});
+
+// 关闭窗口
+function closeModal() {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+// 可选：ESC键关闭
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
 // 透明度调节滑块
 if (localStorage.getItem("transNum") == undefined) {
    localStorage.setItem("transNum", 95);
