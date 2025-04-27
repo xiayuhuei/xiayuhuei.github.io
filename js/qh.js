@@ -16,8 +16,26 @@ function loadData(name, time) {
    return 0;
 }
 
-// 设置字体选择框边界
-function setFontBorder() {
+// 设置字体
+if (localStorage.getItem("font") == undefined) {
+   localStorage.setItem("font", "xxx");
+ }
+ setFont(localStorage.getItem("font"));
+ function setFont(n) {
+   localStorage.setItem("font", n)
+   if (n == "default") {
+     document.documentElement.style.setProperty('--global-font', '-apple-system');
+     document.body.style.fontFamily = "原神字体, 优设体, 猫啃珠圆体, marvel体, 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
+   }
+   else {
+     document.documentElement.style.setProperty('--global-font', n);
+     document.body.style.fontFamily = "var(--global-font),-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
+   }
+   try { setFontBorder(); } catch (err) { };
+ }
+ 
+ // 设置字体选择框边界
+ function setFontBorder() {
    var curFont = localStorage.getItem("font");
    var swfId = "swf_" + curFont;
    document.getElementById(swfId).style.border = "2px solid var(--theme-color)";
@@ -25,8 +43,6 @@ function setFontBorder() {
      if (ee.id != swfId) ee.style.border = "2px solid var(--border-color)";
    });
  }
-
-
 
 // 打开窗口函数
 function openModal() {
@@ -105,6 +121,26 @@ if (localStorage.getItem("transNum") == undefined) {
 
 // 上面两个函数如果你有其他需要存取数据的功能，也可以直接使用
 
+// 侧边栏开关
+if (localStorage.getItem("rs") == undefined) {
+  localStorage.setItem("rs", "block");
+}
+if (localStorage.getItem("rs") == "block") {
+  document.getElementById("rightSide").innerText = `:root{--rightside-display: block}`;
+} else {
+  document.getElementById("rightSide").innerText = `:root{--rightside-display: none}`;
+}
+function toggleRightside() {
+  // 先设置localStorage变量
+  if (document.getElementById("rightSideSet").checked) {
+    localStorage.setItem("rs", "block");
+    document.getElementById("rightSide").innerText = `:root{--rightside-display: block}`;
+  } else {
+    localStorage.setItem("rs", "none");
+    document.getElementById("rightSide").innerText = `:root{--rightside-display: none}`;
+  }
+}
+
 // 读取背景
 try {
    let data = loadData('blogbg', 1440)
@@ -155,8 +191,20 @@ function createWinbox() {
     <div class="note info modern"><p>点击对应样式即可切换背景(主页不显示可跳转到文章查看) </p>
     </div>
 
-    <div class="note danger modern"><i class="note-icon fa-solid.fa-image"></i><p>有效期为一天，到期切回默认壁纸</p>
+    <div class="note danger modern"><i class="note-icon fa-solid.fa-image"></i><p>有效期为一次，到期切回默认壁纸</p>
     </div>
+
+    <h2>二、字体设置</h2>
+<div class="note info modern"><p>非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方 </p>
+    </div>
+    <p id="swfs">
+    <a class="swf" id="swf_优设体" href="javascript:;" rel="noopener external nofollow" style="font-family:'优设体';!important;color:black" onclick="setFont('优设体')">优设体</a>
+    <a class="swf" id="swf_原神字体" href="javascript:;" rel="noopener external nofollow" style="font-family:原神字体;!important;color:black" onclick="setFont('原神字体')">原神字体</a>
+    <a class="swf" id="swf_猫啃珠圆体" href="javascript:;" rel="noopener external nofollow" style="font-family:猫啃珠圆体;!important;color:black" onclick="setFont('猫啃珠圆体')">猫啃珠圆体</a>
+    <a class="swf" id="swf_marvel体" href="javascript:;" rel="noopener external nofollow" style="font-family:marvel体;!important;color:black" onclick="setFont('marvel体')">marvel体</a>
+    <a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan'!important;color:black" onclick="setFont('ZhuZiAWan')">系统默认</a>
+
+</p>  
 
     <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#5fcdff;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
     <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
@@ -206,7 +254,6 @@ function createWinbox() {
      </details></article><div class="post-copyright">
 <div>
 
-    
     </div>
      <h2 id="图片（电脑）"><a href="#图片（电脑）" class="headerlink" title="图片（电脑）"></a>图片（电脑）</h2>
      </time></header><details class="folding-tag" ><summary> 查看电脑壁纸 </summary>
@@ -452,6 +499,10 @@ function createWinbox() {
            style="background: #355C7D"
            onclick="changeBg('#355C7D')"></a>
      </details>
+
+   <br>
+   <center><div style="font-size:1.2em;color:var(--theme-color);font-weight:bold;">------ ( •̀ ω •́ )y✨仙途已径 ------</div></center>
+   <br>
     </div>
 `;
 }

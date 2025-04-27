@@ -2826,7 +2826,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: xiayu;
+  font-family: 原神字体, 优设体, 猫啃珠圆体, marvel体;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -2974,7 +2974,7 @@ a:hover {
 #site-name,
 #aside-content .author-info__name,
 #aside-content .author-info__description {
-  font-family: xiayu,PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+  font-family: 原神字体,PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
 }
 .is-center {
   text-align: center;
@@ -3678,7 +3678,7 @@ figure.highlight pre .javascript .function {
   height: 100%;
   vertical-align: top;
   text-align: center;
-  font-family: xiayu,PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+  font-family: 原神字体,PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
 }
 @media screen and (max-width: 768px) {
   .error404 #error-wrap .error-content .error-info {
@@ -8758,7 +8758,7 @@ body:has(#console.show) #nav-music {
   color: var(--anzhiyu-lighttext);
 }
 #tag #tag-page-tags a {
-  font-family: xiayu;
+  font-family: 原神字体, 优设体, 猫啃珠圆体, marvel体;
   font-size: 0.9em;
 }
 #tag #tag-page-tags a:hover {
@@ -8777,7 +8777,7 @@ span.categoryes-punctuation .icon-biaoqian {
   font-size: 13px;
 }
 .tagsPageCount {
-  font-family: xiayu;
+  font-family: 原神字体, 优设体, 猫啃珠圆体, marvel体;
 }
 [data-theme="light"] #post .tag_share .post-meta__box__tags span.tagsPageCount {
   background-color: transparent;
@@ -9070,7 +9070,7 @@ h1.page-title + .tag-cloud-list {
   padding: 0.5rem;
   text-align: center;
   font-size: 14px;
-  font-family: xiayu;
+  font-family: 原神字体, 优设体, 猫啃珠圆体, marvel体;
 }
 @media screen and (max-width: 768px) {
   #error-wrap .error-content .error-info {
@@ -21266,7 +21266,7 @@ svg.icon {
 }
 
 .icon-zhongbiao::before {
-  color: #f7c768;
+  color: #6d69b6;
 }
 
 /* 解决artitalk的图标问题 */
@@ -21444,7 +21444,7 @@ html.hide-aside .layout > div:first-child {
   }
 }
 /* 首页文章宽度 */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
   .layout > div:first-child {
     width: 100% !important;
   }
@@ -21467,13 +21467,13 @@ html.hide-aside .layout > div:first-child {
   animation: slide-in 0.6s ease 0s 1 normal none running;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1600px) {
   #page > div:not(.author-content-item) {
     animation: slide-in 0.6s 0.2s backwards;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1600px) {
   .author-content-item {
     animation: slide-in 0.6s 0s backwards;
   }
@@ -21488,29 +21488,6 @@ html.hide-aside .layout > div:first-child {
     opacity: 1;
   }
 }
-
-/* 帧率检测 */
-#fps {
-  position: fixed;
-  /* 指定位置 */
-  left: 10px;
-  bottom: 10px;
-  z-index: 1919810;
-}
-[data-theme="light"] #fps {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: var(--backdrop-filter);
-  padding: 4px;
-  border-radius: 4px;
-}
-[data-theme="dark"] #fps {
-  background-color: rgba(0, 0, 0, 0.72);
-  backdrop-filter: var(--backdrop-filter);
-  padding: 4px;
-  border-radius: 4px;
-}
-
-
 #aside-content .card-widget#card-wechat {
   background: linear-gradient(to right, #468efab9, #26ccfeb4);
   display: flex;
@@ -21915,7 +21892,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
   top: 0px;
   left: 0px;
   background: var(--anzhiyu-main);
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   transition: all 0.3s ease-out 0s;
 }
 #article-container ol > li::before {
@@ -24304,7 +24281,7 @@ a.categoryButton.blue {
   background-size: 200%;
 }
 a.categoryButton.red {
-  background: linear-gradient(to right, #f65, #ffbf37);
+  background: linear-gradient(to right, #FF0033, #f65);
   background-size: 200%;
 }
 a.categoryButton.green {
@@ -24348,7 +24325,7 @@ a.categoryButton:after {
   background-size: 200%;
 }
 [data-theme="dark"] a.categoryButton.red {
-  background: linear-gradient(to right, #e22a16, #da980c);
+  background: linear-gradient(to right, #FF0033, #f65);
   background-size: 200%;
 }
 [data-theme="dark"] a.categoryButton.green {

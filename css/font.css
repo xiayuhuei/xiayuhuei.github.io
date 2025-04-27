@@ -1,6 +1,6 @@
 @font-face {
     /* 为载入的字体取名字(随意) */
-    font-family: 'xiayu';	
+    font-family: '优设体';	
     /* 字体文件地址(相对或者绝对路径都可以) */
     src: url('/font/YouSh.ttf') format("truetype");
     
@@ -11,3 +11,42 @@
     /* 定义显示样式 */
     font-display: block;
   }
+  @font-face {
+    /* 为载入的字体取名字(随意) */
+    font-family: '猫啃珠圆体';	
+    /* 字体文件地址(相对或者绝对路径都可以) */
+    src: url('/font/MaoKen.ttf') format("truetype");
+    
+    /* 定义加粗样式(加粗多少) */
+    font-weight: normal;
+    /* 定义字体样式(斜体/非斜体) */
+    font-style: normal;
+    /* 定义显示样式 */
+    font-display: block;
+  }  
+  @font-face {
+    /* 为载入的字体取名字(随意) */
+    font-family: 'marvel体';	
+    /* 字体文件地址(相对或者绝对路径都可以) */
+    src: url('/font/marvel.ttf') format("truetype");
+    
+    /* 定义加粗样式(加粗多少) */
+    font-weight: normal;
+    /* 定义字体样式(斜体/非斜体) */
+    font-style: normal;
+    /* 定义显示样式 */
+    font-display: block;
+  }    
+  @font-face {
+    /* 为载入的字体取名字(随意) */
+    font-family: '原神字体';	
+    /* 字体文件地址(相对或者绝对路径都可以) */
+    src: url('/font/Yuan.ttf') format("truetype");
+    
+    /* 定义加粗样式(加粗多少) */
+    font-weight: normal;
+    /* 定义字体样式(斜体/非斜体) */
+    font-style: normal;
+    /* 定义显示样式 */
+    font-display: block;
+  }      
