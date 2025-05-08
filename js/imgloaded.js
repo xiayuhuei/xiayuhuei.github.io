@@ -3,46 +3,95 @@
  * @description 实现medium的渐进加载背景的效果
  */
 (function() {
-    class ProgressiveLoad {
-      constructor(smallSrc, largeSrc) {
-        this.smallSrc = smallSrc;
-        this.largeSrc = largeSrc;
-        this.initTpl();
-        this.container.addEventListener('animationend', () => {
-          this.smallStage.style.display = 'none'; 
-        }, {once: true});
-      }
-  
-      initTpl() {
-        this.container = document.createElement('div');
-        this.smallStage = document.createElement('div');
-        this.largeStage = document.createElement('div');
+  class ProgressiveLoad {
+    constructor(smallSrc, largeSrc) {
+      this.smallSrc = smallSrc;
+      this.largeSrc = largeSrc;
+      this.isSmallVideo = this.isVideo(smallSrc);
+      this.isLargeVideo = this.isVideo(largeSrc);
+      this.initTpl();
+      this.container.addEventListener('animationend', () => {
+        this.smallStage.style.display = 'none'; 
+      }, {once: true});
+    }
+
+    isVideo(src) {
+      return src && src.match(/\.(mp4|webm|ogg|mov)$/i);
+    }
+
+    initTpl() {
+      this.container = document.createElement('div');
+      this.smallStage = document.createElement('div');
+      this.largeStage = document.createElement('div');
+      this.container.className = 'pl-container';
+      this.smallStage.className = 'pl-img pl-blur';
+      this.largeStage.className = 'pl-img';
+      this.container.appendChild(this.smallStage);
+      this.container.appendChild(this.largeStage);
+
+      // 初始化小图/视频
+      if (this.isSmallVideo) {
+        this.smallVideo = document.createElement('video');
+        this.smallVideo.autoplay = true;
+        this.smallVideo.loop = true;
+        this.smallVideo.muted = true;
+        this.smallVideo.playsInline = true;
+        this.smallVideo.style.objectFit = 'cover';
+        this.smallVideo.style.width = '100%';
+        this.smallVideo.style.height = '100%';
+        this.smallStage.appendChild(this.smallVideo);
+        this.smallVideo.addEventListener('canplaythrough', this._onSmallLoaded.bind(this), { once: true });
+      } else {
         this.smallImg = new Image();
+        this.smallImg.onload = () => {
+          this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
+          this._onSmallLoaded();
+        };
+      }
+
+      // 初始化大图/视频
+      if (this.isLargeVideo) {
+        this.largeVideo = document.createElement('video');
+        this.largeVideo.autoplay = true;
+        this.largeVideo.loop = true;
+        this.largeVideo.muted = true;
+        this.largeVideo.playsInline = true;
+        this.largeVideo.style.objectFit = 'cover';
+        this.largeVideo.style.width = '100%';
+        this.largeVideo.style.height = '100%';
+        this.largeStage.appendChild(this.largeVideo);
+        this.largeVideo.addEventListener('canplaythrough', this._onLargeLoaded.bind(this), { once: true });
+      } else {
         this.largeImg = new Image();
-        this.container.className = 'pl-container';
-        this.smallStage.className = 'pl-img pl-blur';
-        this.largeStage.className = 'pl-img';
-        this.container.appendChild(this.smallStage);
-        this.container.appendChild(this.largeStage);
-        this.smallImg.onload = this._onSmallLoaded.bind(this);
-        this.largeImg.onload = this._onLargeLoaded.bind(this);
-      }
-  
-      progressiveLoad() {
-        this.smallImg.src = this.smallSrc;
-        this.largeImg.src = this.largeSrc;
-      }
-  
-      _onLargeLoaded() {
-        this.largeStage.classList.add('pl-visible');
-        this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
-      }
-  
-      _onSmallLoaded() {
-        this.smallStage.classList.add('pl-visible');
-        this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
+        this.largeImg.onload = () => {
+          this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
+          this._onLargeLoaded();
+        };
       }
     }
+
+    progressiveLoad() {
+      if (this.isSmallVideo) {
+        this.smallVideo.src = this.smallSrc;
+      } else {
+        this.smallImg.src = this.smallSrc;
+      }
+
+      if (this.isLargeVideo) {
+        this.largeVideo.src = this.largeSrc;
+      } else {
+        this.largeImg.src = this.largeSrc;
+      }
+    }
+
+    _onSmallLoaded() {
+      this.smallStage.classList.add('pl-visible');
+    }
+
+    _onLargeLoaded() {
+      this.largeStage.classList.add('pl-visible');
+    }
+  }
   
     const executeLoad = (config, target) => {
       console.log('执行渐进背景替换');
@@ -59,17 +108,17 @@
   
     const ldconfig = {
       light: {
-        smallSrc: 'https://img.picgo.net/2025/04/11/-16374dc4da99ae6b4.md.png', //浅色模式 小图链接 尽可能配置小于100k的图片 
-        largeSrc: 'https://img.picgo.net/2025/04/11/-16374dc4da99ae6b4.png', //浅色模式 大图链接 最终显示的图片
-        mobileSmallSrc: 'https://s21.ax1x.com/2025/04/10/pEgzI5q.jpg', //手机端浅色小图链接 尽可能配置小于100k的图片
-        mobileLargeSrc: 'https://s21.ax1x.com/2025/04/10/pEgzI5q.jpg', //手机端浅色大图链接 最终显示的图片
+        smallSrc: 'https://img.picgo.net/2025/05/05/GAMLVP-X0AA1ixzef10f8a07fcb1d38.jpg', //浅色模式 小图链接 尽可能配置小于100k的图片 
+        largeSrc: 'https://img.picgo.net/2025/05/05/55c861410e4f55bcf0.mp4', //浅色模式 大图链接 最终显示的图片
+        mobileSmallSrc: 'https://img.picgo.net/2025/05/05/GAMLVP-X0AA1ixzef10f8a07fcb1d38.jpg', //手机端浅色小图链接 尽可能配置小于100k的图片
+        mobileLargeSrc: 'https://img.picgo.net/2025/05/05/55c861410e4f55bcf0.mp4', //手机端浅色大图链接 最终显示的图片
         enableRoutes: ['/'],
         },
       dark: {
         smallSrc: 'https://s21.ax1x.com/2025/04/10/pEgx59K.png', //深色模式 小图链接 尽可能配置小于100k的图片 
-        largeSrc: 'https://s21.ax1x.com/2025/04/10/pEgx59K.png', //深色模式 大图链接 最终显示的图片
-        mobileSmallSrc: 'https://s21.ax1x.com/2025/04/10/pEgxI1O.jpg', //手机端深色模式小图链接 尽可能配置小于100k的图片
-        mobileLargeSrc: 'https://s21.ax1x.com/2025/04/10/pEgxocD.jpg', //手机端深色大图链接 最终显示的图片
+        largeSrc: 'https://img.picgo.net/2025/05/05/55166d05d5fac5139b8.mp4', //深色模式 大图链接 最终显示的图片
+        mobileSmallSrc: 'https://s21.ax1x.com/2025/04/10/pEgx59K.png', //手机端深色模式小图链接 尽可能配置小于100k的图片
+        mobileLargeSrc: 'https://img.picgo.net/2025/05/05/55166d05d5fac5139b8.mp4', //手机端深色大图链接 最终显示的图片
         enableRoutes: ['/'],
         },
       };
